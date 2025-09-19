@@ -1,0 +1,77 @@
+Leet Code for the day 
+
+********Concatenation of Array:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given an integer array nums of length n. Create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+
+Specifically, ans is the concatenation of two nums arrays.
+
+Return the array ans.
+
+####Solution:####
+
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+    # nums length n 
+    # create array ans length 2n 
+    # ans[i] == nums[i]
+    # ans[i + n] == nums[i]
+
+    ### return ans 
+        ans = []
+        for x in range(2):
+            for num in nums:
+                ans.append(num)
+        return ans
+
+
+
+******** Contains Duplicate:****************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
+
+####Solution:####
+
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        #given array nums return true if it appears more than once else return false 
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] == nums[j]:   
+                    return True
+        return False
+
+#### or 
+
+        already_seen = set()
+        for num in nums:
+            if num in already_seen:
+                return True
+            already_seen.add(num)
+        return False
+        
+
+******** Two Sum:***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+
+You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
+
+Return the answer with the smaller index first.
+
+####Solution:####
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # array = nums
+        # int = target
+        # retrun i and j where i and j equal target 
+        # i != j
+        # only one pair 
+        # return smaller index first 
+        HashMP = {}
+        for i, j in enumerate(nums):
+            diff = target - j
+            if diff in HashMP:
+                return [HashMP[diff], i]
+            HashMP[j] = i
