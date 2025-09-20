@@ -1,0 +1,102 @@
+********Concatenation of Array:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given an integer array nums of length n. Create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+
+Specifically, ans is the concatenation of two nums arrays.
+
+Return the array ans.
+
+####Solution:####
+
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        #create array (ans) length 2n
+        #ans[i] == nums[i]
+        #ans[i + n] == nums[i]
+
+        ans = []
+        for i in range(2):
+            for num in nums:
+                #appends the array to ans 
+                ans.append(num)
+        return ans
+
+
+********contains duplicate:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
+
+####Solution:####
+
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] == nums[j]:
+                    return True
+        return False
+
+        # or 
+        # return len(set(nums)) < len(nums)
+
+********two sum :*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+
+You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
+
+Return the answer with the smaller index first.
+
+####Solution:####
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    #return i and j such that nums[i] and nums[j] == target
+    #i != j 
+
+    #every input only has one pair i and j 
+
+        # hashmap = {}
+        # for i, j in enumerate(nums):
+        #     difference = target - j
+        #     if difference in hashmap:
+        #         return[hashmap[difference], i]
+        #     hashmap[j] = i
+    #or
+
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return []
+
+******** reverse string :*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given an array of characters which represents a string s. Write a function which reverses a string.
+
+You must do this by modifying the input array in-place with O(1) extra memory.
+
+####solution:####
+
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        # s.reverse()
+
+        # or 
+
+        #two pointer solution 
+        # left and right pointer wehre we swap movign towards the middle 
+        # then we increment + and - 1 respectively 
+        # we can loop this while l is greater than right 
+        
+        l = 0
+        r = len(s) - 1
+
+        #len(s)-1 because we count from 0 
+
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
+
+
