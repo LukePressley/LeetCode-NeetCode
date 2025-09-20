@@ -75,3 +75,27 @@ class Solution:
             if diff in HashMP:
                 return [HashMP[diff], i]
             HashMP[j] = i
+
+********Reverse String:*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given an array of characters which represents a string s. Write a function which reverses a string.
+
+You must do this by modifying the input array in-place with O(1) extra memory.
+
+####solution:####
+
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        
+        s.reverse()
+
+        #or 
+
+        l,r=0, len(s) - 1
+
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
+
+
