@@ -1,0 +1,47 @@
+********Majority Element:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times in the array. You may assume that the majority element always exists in the array.
+
+####Solution:####
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        elements = {}
+        res, cmax = 0 , 0
+
+        for x in nums:
+            elements[x] = 1 + elements.get(x, 0)
+            res = x if elements[x] > cmax else res
+            cmax = max(elements[x], cmax)
+        return res
+
+        
+********Merge Strings Alternately:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given two strings, word1 and word2. Construct a new string by merging them in alternating order, starting with word1 — take one character from word1, then one from word2, and repeat this process.
+
+If one string is longer than the other, append the remaining characters from the longer string to the end of the merged result.
+
+Return the final merged string.
+
+####Solution:####
+
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        res = []
+
+        m=len(word1)
+        n=len(word2)
+
+        x=0
+        y=0
+
+        while x<m or y<n:
+            if x<m:
+                res.append(word1[x])
+            if y<n:
+                res.append(word2[y])
+            x +=1
+            y +=1
+        return "".join(res)
