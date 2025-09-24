@@ -48,17 +48,6 @@ class Solution:
         return list(result.values())        
 
 
-********Top K Frequent Elements:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-
-Given an integer array nums and an integer k, return the k most frequent elements within the array.
-
-The test cases are generated such that the answer is always unique.
-
-You may return the output in any order.
-
-
-
-
 ********Contains Duplicate:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 
 Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
