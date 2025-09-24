@@ -1,0 +1,88 @@
+********Reverse String:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given an array of characters which represents a string s. Write a function which reverses a string.
+
+You must do this by modifying the input array in-place with O(1) extra memory.
+
+####Solution:####
+
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        l = 0
+        r = len(s) - 1
+
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            l +=1
+            r -=1
+
+
+********Valid Anagram:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+Given two strings s and t, return true if the two strings are anagrams of each other, otherwise return false.
+
+An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
+####Soution:####
+
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        
+        if len(s) != len(t):
+            return False
+
+        # scount = {}
+        # tcount = {}
+
+        # for i in range(len(s)):
+        #     scount[s[i]] = scount.get(s[i],0) + 1
+        #     tcount[t[i]] = tcount.get(t[i],0) + 1
+
+        # return scount == tcount
+
+        return sorted(s) == sorted(t)
+
+********Longest Common Prefix:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given an array of strings strs. Return the longest common prefix of all the strings.
+
+If there is no longest common prefix, return an empty string "".
+
+####Solution:####
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+
+        returnstring = ""
+
+        for x in range(len(strs[0])):
+            for c in strs:
+                if x == len(c) or c[x] != strs[0][x]:
+                    return returnstring
+            returnstring += strs[0][x]
+        
+        return returnstring
+
+
+********Two Sum:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+
+You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
+
+Return the answer with the smaller index first.
+
+####Solution:####
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+
+        for i, j in enumerate(nums):
+            diff = target - j
+            if diff in hashmap:
+                return [hashmap[diff], i]
+            hashmap[j] = i
+
+        
