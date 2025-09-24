@@ -55,3 +55,21 @@ Given an integer array nums and an integer k, return the k most frequent element
 The test cases are generated such that the answer is always unique.
 
 You may return the output in any order.
+
+
+
+
+********Contains Duplicate:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
+
+####Solution####
+
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        
+        for x in range(len(nums)):
+            for j in range(x+1, len(nums)):
+                if nums[x] == nums[j]:
+                    return True
+        return False
