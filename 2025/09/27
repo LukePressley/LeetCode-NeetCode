@@ -1,0 +1,32 @@
+********Merge Strings Alternately:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+You are given two strings, word1 and word2. Construct a new string by merging them in alternating order, starting with word1 — take one character from word1, then one from word2, and repeat this process.
+
+If one string is longer than the other, append the remaining characters from the longer string to the end of the merged result.
+
+Return the final merged string. 
+
+####Solution:####
+
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        result = []
+        
+        x = y = 0
+
+        o = len(word1)
+        p = len(word2)
+
+        while x < o or y < p:
+            if x < o:
+                result.append(word1[x])
+            if y < p:
+                result.append(word2[y])
+
+            x += 1
+            y += 1
+
+        return "".join(result)
+
+
+********Merge Strings Alternately:*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
